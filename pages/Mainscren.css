@@ -1,0 +1,139 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.mainscreen {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 31px;
+  background: #e5e5e5;
+}
+
+.mainscreen__exit {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.mainscreen__exit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  letter-spacing: -0.408px;
+  color: #1157a7;
+  font-size: 20px;
+  line-height: 22px;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.exit__text {
+  margin-right: 20px;
+}
+
+.exit__img {
+  width: 18px;
+  height: 18px;
+}
+
+.mainscreen__information-block {
+  background: #ffffff;
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 40px 65px 40px 54px;
+  max-width: 77%;
+}
+
+.information-block__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header__title {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 37px;
+  color: #424242;
+}
+
+.header__img {
+  width: 8px;
+  height: 17px;
+  margin: 0px 20px;
+}
+
+.header__destination {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 37px;
+  color: #424242;
+  margin-right: 40px;
+}
+.header__date {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  color: #1157a7;
+  margin-right: 15px;
+}
+
+.header__calendar-btn {
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.information-block__carusel {
+  margin-bottom: 31px;
+  overflow-x: scroll;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  border-width: 10px;
+  border-style: solid;
+  border-image: linear-gradient(
+    270deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 83.85%
+  );
+  border-top: none;
+  border-left: none;
+  border-bottom: none;
+}
+
+.carusel__photos {
+}
+
+.information-block__carusel::-webkit-scrollbar {
+  width: 0;
+}
+
+.carusel__img-block {
+  width: 164px;
+  height: 149px;
+  overflow: hidden;
+  flex: none;
+  border-radius: 10px;
+  margin-right: 12px;
+}
+
+.carusel__img {
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
+  width: 100%;
+}

@@ -1,0 +1,71 @@
+.mainscreen {
+  background: rgba(255, 255, 255, 0.6);
+  background-image: url(./../assets/img/bg_login-form.png);
+  height: 100vh;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(20px);
+}
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  padding: 33px 53px 33px 37px;
+  min-width: 410px;
+}
+.form__title {
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: #424242;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.form__input {
+  width: 100%;
+  border: 1px solid #c9cacc;
+  border-radius: 4px;
+  height: 34px;
+  margin-top: 7px;
+  margin-bottom: 25px;
+  outline: none;
+}
+.form__input-label {
+  display: block;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #424242;
+}
+.btn__group {
+  text-align: end;
+}
+.form__btn {
+  background: linear-gradient(104.34deg, #3c4cad -15.34%, #00c3ff 145.95%);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  padding: 6px 37px;
+  transition: 0.2s;
+  border: 1.5px solid transparent;
+}
+
+.form__btn:hover {
+  box-shadow: 0px 0px 4px #99a0a3;
+}
+.form__btn:active {
+  background: linear-gradient(104.34deg, #5362be -15.34%, #4ad5ff 145.95%);
+  border: 1.5px solid rgba(29, 138, 216, 0.3);
+}
