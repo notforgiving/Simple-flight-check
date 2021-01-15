@@ -1,14 +1,11 @@
+import {IActionObject} from './interfaceType'
+
 export enum actionsForPhoto {
   LOAD_PHOTO = "LOAD_PHOTO",
   GET_PHOTO = "GET_PHOTO"
 }
 
-export interface IActionPhotoObject{
-  type:string,
-  payload:object
-}
-
-export const getPhoto = (data:Array<Object>):IActionPhotoObject => ({
+export const getPhoto = (data:Array<Object>):IActionObject => ({
   type: actionsForPhoto.GET_PHOTO,
   payload: data
 });

@@ -1,16 +1,9 @@
-import React from "react";
+import React, { ReactFragment } from "react";
+import { StyleSheet } from "react-native";
 import { useDispatch } from "react-redux";
 import "./Login.css";
-import { loadData } from "./../redux/action/auth";
 
 function Loginpage(): any {
-  const dispatch = useDispatch();
-
-  const onClick = ()=>{
-    dispatch(loadData())
-    console.log('test')
-  }
-
   return (
     <>
       <div className="mainscreen"> </div>
@@ -25,7 +18,7 @@ function Loginpage(): any {
           <input className="form__input" />
         </label>
         <div className="btn__group">
-          <button className="form__btn" onClick={onClick}>
+          <button className="form__btn">
             Войти
           </button>
         </div>

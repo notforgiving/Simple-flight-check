@@ -1,11 +1,11 @@
 body,
 html {
-  margin: 0;
-  padding: 0;
   font-family: "Roboto";
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -54,6 +54,7 @@ html {
   border-radius: 20px;
   padding: 40px 65px 40px 54px;
   max-width: 77%;
+  height: 88vh;
 }
 
 .information-block__header {
@@ -99,7 +100,7 @@ html {
 }
 
 .information-block__carusel {
-  margin-bottom: 31px;
+  margin-bottom: 10px;
   overflow-x: scroll;
   position: relative;
   display: flex;
@@ -117,9 +118,6 @@ html {
   border-bottom: none;
 }
 
-.carusel__photos {
-}
-
 .information-block__carusel::-webkit-scrollbar {
   width: 0;
 }
@@ -131,9 +129,105 @@ html {
   flex: none;
   border-radius: 10px;
   margin-right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carusel__img {
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
-  width: 100%;
+  width: 164px;
+    height: 149px;
+}
+
+.information-block__sum {
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  color: #424242;
+  margin-bottom: 23px;
+}
+
+.information-block__sum span {
+  color: #1157a7;
+  font-weight: 600;
+}
+
+.information-block__flights {
+  overflow-y: scroll;
+  max-height: 57%;
+}
+
+.flights__block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 19px;
+  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
+}
+.flights__block-img {
+  width: 64px;
+  height: 64px;
+  margin-right: 24px;
+}
+.flights__block-data {
+  font-size: 14px;
+  margin-right: 69px;
+}
+.flights__destination {
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  color: #424242;
+  margin-bottom: 5px;
+}
+.flights__block-arrow {
+  margin: 0px 12px;
+}
+.flights__date {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  color: #878787;
+  margin-bottom: 5px;
+}
+.flights__company {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  color: #878787;
+}
+.flights__block-control {
+  height: 100%;
+  text-align: right;
+}
+
+.mark__btn{
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.flights__block-mark {
+  margin-bottom: 27px;
+  width: 21px;
+}
+.flights__block-price {
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  color: #878787;
+}
+
+.flights__block-price span {
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  color: #424242;
+  margin-left: 8px;
 }
