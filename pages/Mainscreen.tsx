@@ -13,9 +13,23 @@ function Mainscreen() {
   const now = new Date();
   const nowMonth =
     now.getMonth() < 10 ? `0${now.getMonth() + 1}` : now.getMonth() + 1;
+  const nameMonth = [
+    "января",
+    "февраля",
+    "марта",
+    "апреля",
+    "мая",
+    "июня",
+    "июля",
+    "августа",
+    "сенября",
+    "октября",
+    "ноября",
+    "декабря",
+  ];
   const nowDay = now.getDate() < 10 ? `0${now.getDate()}` : now.getDate();
   const [date, setDate] = useState(
-    `${now.getFullYear()}-${nowMonth}-${nowDay}`
+    `${nowDay} ${nameMonth[now.getMonth()]} ${now.getFullYear()}`
   );
   const { photo, flights }: any = useSelector((state) => state);
 
@@ -25,7 +39,7 @@ function Mainscreen() {
 
   useEffect(() => {
     dispatch(loadPhoto());
-    dispatch(loadFlights(date));
+    dispatch(loadFlights(`${now.getFullYear()}-${nowMonth}-${nowDay}`));
   }, [dispatch]);
 
   const handleChengeDate = (e: any): void => {
@@ -82,7 +96,7 @@ function Mainscreen() {
                     places={Places}
                     carriers={Carriers[index].Name}
                     price={Quotes[index].MinPrice}
-                    departmentDate={Quotes[index].OutboundLeg.DepartureDate}
+                    departmentDate={Quotes[index].OutboundLeg.DepartureDate.replace('T',' - ')}
                   />
                 );
               })

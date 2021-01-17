@@ -61,6 +61,8 @@ html {
   display: flex;
   align-items: center;
   margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .header__title {
@@ -155,7 +157,7 @@ html {
 }
 
 .information-block__flights {
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 57%;
 }
 
@@ -166,6 +168,10 @@ html {
   padding: 20px 19px;
   border-bottom: 1px solid rgba(135, 135, 135, 0.2);
 }
+.flights__description{
+  display: flex;
+  align-items: center;
+}
 .flights__block-img {
   width: 64px;
   height: 64px;
@@ -173,7 +179,6 @@ html {
 }
 .flights__block-data {
   font-size: 14px;
-  margin-right: 69px;
 }
 .flights__destination {
   font-weight: 300;
