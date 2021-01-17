@@ -15,7 +15,7 @@ function Mainscreen() {
     now.getMonth() < 10 ? `0${now.getMonth() + 1}` : now.getMonth() + 1;
   const nowDay = now.getDate() < 10 ? `0${now.getDate()}` : now.getDate();
   const [date, setDate] = useState(
-    `${now.getFullYear()}-${nowMonth}-${nowDay}  `
+    `${now.getFullYear()}-${nowMonth}-${nowDay}`
   );
   const { photo, flights }: any = useSelector((state) => state);
 

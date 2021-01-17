@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Login.css";
 import { authorizationacrion } from "./../redux/action/auth";
@@ -7,7 +7,7 @@ import classNames from "classnames";
 function Loginpage(): any {
   const dispatch = useDispatch();
 
-  const {errors}:any = useSelector((state)=>state)
+  const { errors }: any = useSelector((state) => state);
 
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -22,23 +22,23 @@ function Loginpage(): any {
     } else if (!(login.includes("@") && login.includes("."))) {
       setErrLogin("Неверный формат почты");
     } else {
-      dispatch(authorizationacrion(login,password))
+      dispatch(authorizationacrion(login, password));
     }
   };
 
-  useEffect(()=>{
-    setErrPassword(errors)
-  },[errors])
+  useEffect(() => {
+    setErrPassword(errors);
+  }, [errors]);
 
   const handleChangeLogin = (e: any) => {
-    setErrLogin('')
-    setErrPassword('')
+    setErrLogin("");
+    setErrPassword("");
     setLogin(e.target.value);
   };
 
   const handleChangePassword = (e: any) => {
-    setErrLogin('')
-    setErrPassword('')
+    setErrLogin("");
+    setErrPassword("");
     setPassword(e.target.value);
   };
 
@@ -47,19 +47,37 @@ function Loginpage(): any {
       <div className="loginscreen"> </div>
       <div className="form">
         <div className="form__title">Simple Flight Check</div>
-        <label className="form__input-label ">
+        <label
+          className={
+            errLogin != ""
+              ? classNames("form__input-label", "form__label-error")
+              : "form__input-label "
+          }
+        >
           Логин:
           <input
-            className="form__input"
+            className={
+              errLogin != ""
+                ? classNames("form__input", "from__input-error")
+                : "form__input"
+            }
             value={login}
             onChange={handleChangeLogin}
           />
           {errLogin ? <div className="input__error">{errLogin}</div> : ""}
         </label>
-        <label className="form__input-label ">
+        <label className={
+            errPassword != ""
+              ? classNames("form__input-label", "form__label-error")
+              : "form__input-label "
+          }>
           Пароль:
           <input
-            className="form__input"
+            className={
+              errPassword != ""
+                ? classNames("form__input", "from__input-error")
+                : "form__input"
+            }
             value={password}
             onChange={handleChangePassword}
           />
