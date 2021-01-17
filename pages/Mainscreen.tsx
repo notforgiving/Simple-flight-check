@@ -6,10 +6,17 @@ import { loadPhoto } from "./../redux/action/loadingPhoto";
 import { loadFlights } from "./../redux/action/loadingflights";
 import "./Mainscren.css";
 import Flight from "../components/Flight";
+import { exit } from "./../redux/action/auth";
 
 function Mainscreen() {
   const dispatch = useDispatch();
-  const [date, setDate] = useState("2021-01-14");
+  const now = new Date();
+  const nowMonth =
+    now.getMonth() < 10 ? `0${now.getMonth() + 1}` : now.getMonth() + 1;
+  const nowDay = now.getDate() < 10 ? `0${now.getDate()}` : now.getDate();
+  const [date, setDate] = useState(
+    `${now.getFullYear()}-${nowMonth}-${nowDay}  `
+  );
   const { photo, flights }: any = useSelector((state) => state);
 
   const {
@@ -25,10 +32,15 @@ function Mainscreen() {
     setDate(e.target.value);
     dispatch(loadFlights(e.target.value));
   };
+
+  const handleExit = () => {
+    dispatch(exit());
+  };
+
   return (
     <div className="mainscreen">
       <div className="mainscreen__exit">
-        <button className="mainscreen__exit-btn">
+        <button onClick={handleExit} className="mainscreen__exit-btn">
           <span className="exit__text">Выйти</span>
           <img className="exit__img" src={Exit} alt="Exit" />
         </button>
@@ -64,14 +76,13 @@ function Mainscreen() {
         <div className="information-block__flights">
           {Quotes
             ? Quotes.map((flight: any, index: any) => {
-                console.log(Quotes[index].MinPrice);
                 return (
                   <Flight
                     key={`flight${index}`}
                     places={Places}
                     carriers={Carriers[index].Name}
                     price={Quotes[index].MinPrice}
-                    departmentDate = {Quotes[index].OutboundLeg.DepartureDate}
+                    departmentDate={Quotes[index].OutboundLeg.DepartureDate}
                   />
                 );
               })

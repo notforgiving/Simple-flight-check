@@ -1,4 +1,4 @@
-.mainscreen {
+.loginscreen {
   background: rgba(255, 255, 255, 0.6);
   background-image: url(./../assets/img/bgLogin.png);
   height: 100vh;
@@ -35,7 +35,7 @@
   border-radius: 4px;
   height: 34px;
   margin-top: 7px;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
   outline: none;
 }
 .form__input-label {
@@ -44,6 +44,7 @@
   font-size: 16px;
   line-height: 19px;
   color: #424242;
+  position: relative;
 }
 .btn__group {
   text-align: end;
@@ -69,4 +70,20 @@
 .form__btn:active {
   background: linear-gradient(104.34deg, #5362be -15.34%, #4ad5ff 145.95%);
   border: 1.5px solid rgba(29, 138, 216, 0.3);
+}
+
+.input__error {
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  color: red;
+  font-size: 14px;
+}
+
+.form__label-error{
+  color: red;
+}
+
+.from__input-error{
+  border: 1px solid red;
 }

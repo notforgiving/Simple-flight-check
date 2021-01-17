@@ -2,17 +2,14 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Provider } from "react-redux";
 import { StyleSheet, View } from "react-native";
-import Loginpage from "./pages/Loginpage";
 import store from "./redux/store";
-import Mainscreen from "./pages/Mainscreen";
+import Switch from "./Switch";
 
 export default function App() {
-
   return (
     <Provider store={store}>
       <View style={styles.container}>
-        {/* <Loginpage /> */}
-        <Mainscreen/>
+        <Switch/>
         <StatusBar style="auto" />
       </View>
     </Provider>

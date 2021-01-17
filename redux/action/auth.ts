@@ -1,25 +1,34 @@
-// export interface IActionObject{
-//   type:string,
-//   payload:{
-//     flag:boolean,
-//     space:string
-//   }
-// }
+export interface IActionObject{
+  type:string,
+  payload:{
+    flag:boolean,
+    space:string
+  }
+}
 
-// export const LOAD_DATA = 'LOAD_DATA'
+export enum actionsForAuth {
+  LOG_IN = "LOG_IN",
+  LOG_OUT = "LOG_OUT",
+  AUTH = "AUTH",
+  EXIT = "EXIT"
+}
 
-// export const loginactioncreactor = (flag:boolean,space:string):IActionObject => ({
-//   type: "LOGIN",
-//   payload: {flag,space}
-// });
+export const loginactioncreactor = (flag:boolean,space:string):IActionObject => ({
+  type: actionsForAuth.LOG_IN,
+  payload: {flag,space}
+});
 
-// export const logoutactioncreactor = (flag:boolean,space:string):IActionObject => ({
-//   type: "LOGOUT",
-//   payload: {flag,space}
-// });
+export const logoutactioncreactor = (flag:boolean,space:string):IActionObject => ({
+  type: actionsForAuth.LOG_OUT,
+  payload: {flag,space}
+});
 
-// export const loadData = () =>{
-//   return {
-//     type:'LOAD_DATA'
-//   }
-// }
+export const authorizationacrion = (login:string,password:string)=>({
+  type: actionsForAuth.AUTH,
+  login,
+  password
+})
+
+export const exit = ()=>({
+  type: actionsForAuth.EXIT
+})
