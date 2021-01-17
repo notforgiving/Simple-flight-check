@@ -7,6 +7,7 @@ import { loadFlights } from "./../redux/action/loadingflights";
 import "./Mainscren.css";
 import Flight from "../components/Flight";
 import { exit } from "./../redux/action/auth";
+import Carusel from "../components/Carusel";
 
 function Mainscreen() {
   const dispatch = useDispatch();
@@ -31,26 +32,25 @@ function Mainscreen() {
   const [date, setDate] = useState(
     `${nowDay} ${nameMonth[now.getMonth()]} ${now.getFullYear()}`
   );
-  const { photo, flights }: any = useSelector((state) => state);
+  const { flights, favorites }: any = useSelector((state) => state);
 
   const {
     data: { Places, Quotes, Carriers },
   } = flights;
 
   useEffect(() => {
-    dispatch(loadPhoto());
     dispatch(loadFlights(`${now.getFullYear()}-${nowMonth}-${nowDay}`));
   }, [dispatch]);
-
+  
   const handleChengeDate = (e: any): void => {
     setDate(e.target.value);
-    dispatch(loadFlights(e.target.value));
+    dispatch(loadFlights(`${e.target.value}`));
   };
 
   const handleExit = () => {
     dispatch(exit());
   };
-
+  
   return (
     <div className="mainscreen">
       <div className="mainscreen__exit">
@@ -72,20 +72,9 @@ function Mainscreen() {
             onChange={handleChengeDate}
           />
         </div>
-        <div className="information-block__carusel">
-          {photo.data.map((photo: any, index: number) => {
-            return (
-              <div
-                className="carusel__img-block"
-                key={`${photo.previewURL}${index}`}
-              >
-                <img className="carusel__img" src={photo.previewURL} alt="" />
-              </div>
-            );
-          })}
-        </div>
+        <Carusel />
         <div className="information-block__sum">
-          Добавлено в Избранное <span>10</span> рейсов
+          Добавлено в Избранное <span>{favorites.length}</span> рейсов
         </div>
         <div className="information-block__flights">
           {Quotes
@@ -95,8 +84,11 @@ function Mainscreen() {
                     key={`flight${index}`}
                     places={Places}
                     carriers={Carriers[index].Name}
+                    idflight={Carriers[index].CarrierId}
                     price={Quotes[index].MinPrice}
-                    departmentDate={Quotes[index].OutboundLeg.DepartureDate.replace('T',' - ')}
+                    departmentDate={Quotes[
+                      index
+                    ].OutboundLeg.DepartureDate.replace("T", " - ")}
                   />
                 );
               })

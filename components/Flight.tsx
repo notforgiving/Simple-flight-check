@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FlightImg from "./../assets/img/flight.svg";
 import Mark from "./../assets/img/mark.svg";
 import Nomark from "./../assets/img/nomark.svg";
 import Arrowright from "./../assets/img/arrowright.svg";
+import { setFavorites, delFavorites } from "./../redux/action/favorites";
+import { useDispatch, useSelector } from "react-redux";
 
-function Flight({ places, carriers, price, departmentDate }: any) {
-  const [mark, setMark] = useState(false);
+function Flight({ places, carriers, price, departmentDate, idflight }: any) {
+  const dispatch = useDispatch();
+  const { favorites }: any = useSelector((state) => state);
+  const [mark, setMark] = useState(
+    favorites.indexOf(idflight) != -1 ? true : false
+  );
+  useEffect(() => {
+    setMark(favorites.indexOf(idflight) != -1 ? true : false);
+  }, [idflight]);
+
   const handleChangeMark = (): void => {
     setMark(!mark);
+    mark ? dispatch(delFavorites(idflight)) : dispatch(setFavorites(idflight));
   };
   return (
     <div className="flights__block">

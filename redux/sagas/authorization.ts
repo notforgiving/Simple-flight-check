@@ -42,7 +42,6 @@ function* workerLogIn(authData: any) {
   else if(result.message==='There is no user record corresponding to this identifier. The user may have been deleted.'){
     result = yield call(fetchAuth, authData);
   }
-  console.log(result)
   yield put(loginactioncreactor(true, result.user.email));
 }
 

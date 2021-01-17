@@ -1,4 +1,4 @@
-import { takeEvery, put, call } from "redux-saga/effects";
+import { takeEvery, put, call,all } from "redux-saga/effects";
 import { actionsForPhoto, getPhoto } from "../action/loadingPhoto";
 import { actionsForFlight, getFlights } from "./../action/loadingflights";
 
@@ -33,11 +33,19 @@ function* workerLoadPhoto() {
 
 function* workerLoadFlights(date:any) {
   const flights: object[] = yield call(fetchFlights,date);
-
   yield put(getFlights(flights));
 }
 
-export function* watchLoadData() {
-  yield takeEvery(actionsForPhoto.LOAD_PHOTO, workerLoadPhoto);
+export function* watchLoadFlight (){
   yield takeEvery(actionsForFlight.LOAD_FLIGHTS, workerLoadFlights);
+}
+export function* watchLoadPhoto (){
+  yield takeEvery(actionsForPhoto.LOAD_PHOTO, workerLoadPhoto);
+}
+
+export function* rootSaga() {
+  yield all([
+    watchLoadFlight(),
+    watchLoadPhoto()
+  ])
 }
